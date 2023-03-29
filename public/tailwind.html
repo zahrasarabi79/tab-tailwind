@@ -7,72 +7,67 @@
     <link rel="stylesheet" href="./build/tailwind.css" />
     <title>drop down dynamic</title>
   </head>
-  <body class="bg-blue-600 flex justify-center items-center h-screen">
-    <div x-data="{radio:1}" class="flex flex-col gap-y-4 max-w-md w-full">
+  <body class="bg-blue-700 flex justify-center items-center h-screen">
+    <div
+      x-data="{tabNo:1 , activeClass:'text-blue-600 bg-white'}"
+      class="max-w-md flex flex-col gap-y-2 w-full"
+    >
+      <!-- tap header -->
       <div
-        @click="radio =1" :class ="radio === 1? 'ring-4 ring-blue-300 bg-blue-400 text-white' :''"
-        class="bg-white p-4 m-2 rounded-xl flex items-center justify-between"
+        class="bg-blue-300 p-2 max-w-md rounded-xl flex gap- gap-x-2 justify-between items-center font-bold text-gray-700"
       >
-        <div>
-          <p class="font-bold mb-2 text-lg">startup</p>
-          <span>12GB/6 CPUs · 160 GB SSD disk</span>
-        </div>
-        <div x-show ="radio=== 1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="w-6 h-6 fill-blue-600"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
+        <button
+          @click="tabNo=1"
+          :class="tabNo===1?activeClass:''"
+          class="w-full hover:bg-blue-500 rounded-lg p-2 flex justify-center focus:ring-2 focus:ring-blue-600 text-blue-600"
+        >
+          tab one
+        </button>
+        <button
+          @click="tabNo=2"
+          :class="tabNo===2?activeClass:''"
+          class="w-full hover:bg-blue-500 rounded-lg p-2 flex justify-center focus:ring-2 focus:ring-blue-600"
+        >
+          tab one
+        </button>
+        <button
+          @click="tabNo=3"
+          :class="tabNo=== 3 ?activeClass:''"
+          class="w-full hover:bg-blue-500 rounded-lg p-2 flex justify-center focus:ring-2 focus:ring-blue-600"
+        >
+          tab one
+        </button>
       </div>
-      <div
-        @click="radio =2" :class ="radio=== 2? 'ring-4 ring-blue-300 bg-blue-400 text-white':''"
-        class="bg-white p-4 m-2 rounded-xl flex items-center justify-between"
-      >
-        <div>
-          <p class="font-bold mb-2 text-lg">startup</p>
-          <span>12GB/6 CPUs · 160 GB SSD disk</span>
+      <!-- tab content -->
+      <div class="bg-white p-2 rounded-xl">
+        <!-- content 1 -->
+        <div x-show="tabNo===1">
+          <div class="hover:bg-gray-100 px-2 py-4 rounded-xl">
+            <p class="font-bold text-m">zahra sarabi.</p>
+            <div class="text-gray-400 text-xs">
+              5 houre ago &bull; 5comments &bull; 2 shares
+            </div>
+          </div>
         </div>
-        <div x-show ="radio=== 2" class="mt-2 ml-10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="w-6 h-6 fill-blue-600"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-              clip-rule="evenodd"
-            />
-          </svg>
+
+        <!-- content 2 -->
+        <div x-show="tabNo===2">
+          <div class="hover:bg-gray-100 px-2 py-4 rounded-xl">
+            <p class="font-bold text-m">sara sarabi.</p>
+            <div class="text-gray-400 text-xs">
+              5 houre ago &bull; 5comments &bull; 2 shares
+            </div>
+          </div>
         </div>
-      </div>
-      <div
-        @click="radio =3" :class ="radio=== 3? 'ring-4 ring-blue-300 bg-blue-400 text-white':''"
-        class="bg-white p-4 m-2 rounded-xl flex items-center justify-between"
-      >
-        <div>
-          <p class="font-bold mb-2 text-lg">startup</p>
-          <span>12GB/6 CPUs · 160 GB SSD disk</span>
-        </div>
-        <div x-show ="radio===3" class="mt-2 ml-10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="w-6 h-6 fill-blue-600"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-              clip-rule="evenodd"
-            />
-          </svg>
+
+        <!-- content 3 -->
+        <div x-show="tabNo===3">
+          <div class="hover:bg-gray-100 px-2 py-4 rounded-xl">
+            <p class="font-bold text-m">bita srabi.</p>
+            <div class="text-gray-400 text-xs">
+              5 houre ago &bull; 5comments &bull; 2 shares
+            </div>
+          </div>
         </div>
       </div>
     </div>
